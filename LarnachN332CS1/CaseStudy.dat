@@ -1,0 +1,40 @@
+/*********************************************
+ * OPL 20.1.0.0 Data
+ * Author: natha
+ * Creation Date: 5 May 2021 at 2:51:26 pm
+ *********************************************/
+ 
+ //Connect to Sheet
+ SheetConnection
+ 	File1("SolutionWorkbook.xlsx"); 
+ 
+//Read in the capacity of each floor
+C_f
+ from SheetRead(File1, "'LARNACHN'!AC3:AC35");
+
+//Read in matrix for number of floors in each building
+//FloorsInBuildings
+// from SheetRead(File1, "'LARNACHN'!C53:J85");	
+
+//Read in matrix for all possible combinations of floors in close proximity
+//Proximity
+// from SheetRead(File1, "'LARNACHN'!C41:K48");
+
+//Read in number of AS and HDR Spaces
+N_y
+ 	from SheetRead(File1, "LARNACHN!C36:L36");
+N_x
+ 	from SheetRead(File1, "LARNACHN!P36:Y36");
+ 
+//Read in initial floor layout	
+Y_0
+ 	from SheetRead(File1, "LARNACHN!C3:L35");
+X_0
+ 	from SheetRead(File1, "LARNACHN!P3:Y35");
+ 	
+//Write in the optimised layout
+Y_FL
+ 	to SheetWrite(File1, "'Ideal RESULTS'!C3:L35");
+ 	
+X_FL
+ 	to SheetWrite(File1, "'Ideal RESULTS'!P3:Y35");
